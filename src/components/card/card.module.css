@@ -1,0 +1,49 @@
+
+.card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 1;
+  }
+
+  /* .card:hover{
+    transform: rotate(180deg);
+    background-color: pink;
+  } */
+  
+  .card::after,
+  .card::before{
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    position: absolute;
+    background-image: conic-gradient(from var(--angle), transparent 75%, rgb(189, 145, 64));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    animation: cardAanimation 4s linear infinite;
+  }
+  
+  .card::before{
+    filter: blur(1rem);
+    opacity: 0.6;
+  }
+
+  @property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+  @keyframes cardAanimation {
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+  }
