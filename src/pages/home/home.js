@@ -1,8 +1,8 @@
-import homeStyles from './home.module.css';
+import './home.css';
 
 const Home = () => {
     return <>
-    <div className={homeStyles.Home}>
+    <div className='Home'>
         <span id="HomePageContent">This is the home page</span>
     </div>
     </>
