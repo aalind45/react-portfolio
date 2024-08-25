@@ -4,10 +4,7 @@ import Undefined from './pages/undefined/undefined';
 import NavBar from './navBar';
 import Footer from './footer';
 import Header from './header';
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
+import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import {navTabs} from './routes';
 
 function App() {
@@ -33,9 +30,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main className="Content">
-        <RouterProvider router={router} />
-      </main>
+      <RouterProvider router={router} />
       <Footer />
     </div>
   );

@@ -6,7 +6,9 @@ const NavBar = () => {
         return <NavLink to={tab.path} 
         className={(e) => {
             return e.isActive ? 'Nav-Tab-Active' : 'Nav-Tab'
-        }} >
+        }} 
+        style={tab.displayName === 'Home' ? {marginRight: 'auto'} : {}}
+        >
             {tab.displayName}
         </NavLink>;
     }
