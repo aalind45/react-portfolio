@@ -1,24 +1,14 @@
-import {Link} from  'react-router-dom';
-import { useState } from 'react';
-import _ from 'lodash';
+import {NavLink, Outlet} from  'react-router-dom';
+import {navTabs} from './routes';
 
-const getCurrTab = (navTabs) => {
-    let currTab = [navTabs[0]];
-    currTab = navTabs.filter(tab => tab.path === window.location.pathname)
-    return currTab[0];
-};
-
-const NavBar = (props) => {
-    const {navTabs} = props;
-    const [currTab, setCurrTab] = useState(getCurrTab(navTabs));
+const NavBar = () => {
     const Tab = ({tab}) => {
-        return <Link
-        relative='path' 
-        to={tab.path} 
-        className={_.isEqual(currTab, tab) ? 'Nav-Tab-Active' : 'Nav-Tab'} 
-        onClick={(e) => setCurrTab(tab)}>
+        return <NavLink to={tab.path} 
+        className={(e) => {
+            return e.isActive ? 'Nav-Tab-Active' : 'Nav-Tab'
+        }} >
             {tab.displayName}
-        </Link>;
+        </NavLink>;
     }
 
     return <nav className='Navigation-panel'>
@@ -28,4 +18,13 @@ const NavBar = (props) => {
     </nav>;
 }
 
-export default NavBar;
+const NavBarWrapper = () => {
+    return(
+      <>
+        <NavBar navTabs={navTabs} />
+        <Outlet />
+      </>
+    );
+  }
+
+export default NavBarWrapper;
