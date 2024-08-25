@@ -12,7 +12,8 @@ const NavBar = (props) => {
     const {navTabs} = props;
     const [currTab, setCurrTab] = useState(getCurrTab(navTabs));
     const Tab = ({tab}) => {
-        return <Link 
+        return <Link
+        relative='path' 
         to={tab.path} 
         className={_.isEqual(currTab, tab) ? 'Nav-Tab-Active' : 'Nav-Tab'} 
         onClick={(e) => setCurrTab(tab)}>
